@@ -1,6 +1,7 @@
 // TIME SPENT:
 // 3/1 2:15
-// 3/2 
+// 3/2 0:20
+
 
 // 5. Then create a Node application called `bamazonCustomer.js`. Running this application will first display all of the items available for sale. Include the ids, names, and prices of products for sale.
 
@@ -26,7 +27,7 @@ X - inquire "how many would you like to buy"
 X - compare # ordered against quantity in the object
 X - logic for having enough quantity or not
 8 - update db to remove quantity
-9 - show total cost of purchase
+X - show total cost of purchase
 10 - ask whether they want to keep shopping
 11 - exit or reload the inquirer trigger
 */
@@ -70,9 +71,8 @@ connection.connect(function(err){
         // TODO: ^^^ why does a FOREACH not work here?
         console.log("\n\nAVAILABLE ITEMS:")
         console.log("\nItem ID | Name | Category | Price")
-        // TODO: need to figure out a way to make the "X.00" prices actually print this way (instead of stripping out the empty decimals)
         for (i=0;i<data.length;i++) {
-            console.log(`${data[i].item_id} | ${data[i].product_name} | ${data[i].department_name} | $${data[i].price}`);
+            console.log(`${data[i].item_id} | ${data[i].product_name} | ${data[i].department_name} | $${data[i].price.toFixed(2)}`);
         }
         console.log("");
         // get user input
@@ -104,15 +104,29 @@ connection.connect(function(err){
                     if (data[q].stock_quantity < response.buyQuantity) {
                         console.log("Sorry, we do not have that many in stock.");
                     } else {
-                        console.log("Sold!")
+                        console.log("Sold! You spent $" + (response.buyQuantity * data[q].price).toFixed(2) + ".");
                     }
                 } 
             }
+            inquirer.prompt (
+                {
+                    type: "list",
+                    message: "Would you like to keep shopping?",
+                    choices: ['Yes','No'],
+                    name: "keepShopping"
+                }
+            ).then(function(response){
+                if(response.keepShopping === 'Yes') {
+                    console.log("Need to add logic to re-run the prompts and query.")
+                } else {
+                    console.log("We're all done then! Thank you and come again!");
+                }
+            });
         });
         // close the connection
         connection.end();
     });
-
+    
 });
 // =============================================
 
