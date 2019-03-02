@@ -1,6 +1,6 @@
 // TIME SPENT:
 // 3/1 2:15
-// 3/2 0:20
+// 3/2 0:50
 
 
 // 5. Then create a Node application called `bamazonCustomer.js`. Running this application will first display all of the items available for sale. Include the ids, names, and prices of products for sale.
@@ -26,10 +26,10 @@ X - inquire "what product would you like to buy"
 X - inquire "how many would you like to buy"
 X - compare # ordered against quantity in the object
 X - logic for having enough quantity or not
-8 - update db to remove quantity
+TODO: 8 - update db to remove quantity
 X - show total cost of purchase
-10 - ask whether they want to keep shopping
-11 - exit or reload the inquirer trigger
+X - ask whether they want to keep shopping
+TODO: 11 - exit or reload the inquirer trigger
 */
 
 
@@ -41,6 +41,13 @@ const mysql = require("mysql");
 const inquirer = require("inquirer");
 const pad = require('pad');
 // TODO: should I remove npm pad from this project?
+// =============================================
+
+
+// =============================================
+// GLOBALS
+var updateQuantity;
+var updateID;
 // =============================================
 
 
@@ -100,33 +107,44 @@ connection.connect(function(err){
                 console.log(data[q].item_id);
                 if (data[q].item_id == response.buyID) { // look for a match between user's ID input and the item_ID of the object
                 // ^^ if you do a === match, you need to convert the user input into a number
+                    
                     console.log("found a match!");
                     if (data[q].stock_quantity < response.buyQuantity) {
                         console.log("Sorry, we do not have that many in stock.");
                     } else {
+                        updateQuantity = data[q].stock_quantity - response.buyQuantity;
+                        console.log("updateQuantity: " + updateQuantity);
+                        updateID = response.buyID;
+                        console.log("updateID: " + updateID);
                         console.log("Sold! You spent $" + (response.buyQuantity * data[q].price).toFixed(2) + ".");
+                        connection.query('update products set stock_quantity = ' + updateQuantity + ' where item_id = ' + updateID, function(err, data) {
+                            if(err) throw err;
+                            console.log("Item quantity updated.");
+                            connection.end();
+                            inquirer.prompt (
+                                {
+                                    type: "list",
+                                    message: "Would you like to keep shopping?",
+                                    choices: ['Yes','No'],
+                                    name: "keepShopping"
+                                }
+                            ).then(function(response){
+                                if(response.keepShopping === 'Yes') {
+                                    console.log("Need to add logic to re-run the prompts and query.")
+                                } else {
+                                    console.log("We're all done then! Thank you and come again!");
+                                }
+                            });
+                        });
+                        
                     }
                 } 
             }
-            inquirer.prompt (
-                {
-                    type: "list",
-                    message: "Would you like to keep shopping?",
-                    choices: ['Yes','No'],
-                    name: "keepShopping"
-                }
-            ).then(function(response){
-                if(response.keepShopping === 'Yes') {
-                    console.log("Need to add logic to re-run the prompts and query.")
-                } else {
-                    console.log("We're all done then! Thank you and come again!");
-                }
-            });
+            
         });
-        // close the connection
-        connection.end();
-    });
-    
-});
+        
+    }); // close connection.query
+
+}); // close connection.connect
 // =============================================
 
