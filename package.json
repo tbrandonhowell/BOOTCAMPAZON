@@ -17,8 +17,9 @@
   },
   "homepage": "https://github.com/tbrandonhowell/bAmazon#readme",
   "dependencies": {
+    "chalk": "^2.4.2",
     "inquirer": "^6.2.2",
     "mysql": "^2.16.0",
-    "pad": "^2.2.2"
+    "table": "^5.2.3"
   }
 }
