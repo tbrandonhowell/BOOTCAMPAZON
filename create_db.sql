@@ -24,6 +24,8 @@ insert into products (product_name,department_name,price,stock_quantity) values
 
 select * from products;
 
+update products set product_name = "Cheesesteak" where item_id = 11;
+update products set department_name = "Prepared Foods" where item_id = 11;
 
 
 
