@@ -194,7 +194,6 @@ var viewLowInv = function() {
 // CREATE addInv() FUNCTION
 var addInv = function() {
     availableItems = []; // clear availableItems
-    console.log("addInv() triggered");
     connection.query('select * from products', function(err, data) { // get all products
         if (err) throw err;
         console.log(chalk.red.bold('\n\n###  BOOTCAMPAZON'));
@@ -281,7 +280,6 @@ var addInv = function() {
 // =============================================
 // CREATE addNewProd() FUNCTION
 var addNewProd = function() {
-    console.log("addNewProd() triggered");
     // need to get all the product info from the user
     inquirer.prompt([
         {
@@ -327,15 +325,15 @@ var addNewProd = function() {
             }
         }
     ]).then(function(response) {
-        console.log("attempting to connect to DB");
-        console.log(response.newName);
-        console.log(response.newCat);
-        console.log(response.newPrice);
-        console.log(response.newStock);
+
         // update the DB to create the item
         connection.query('insert into products (product_name, department_name, price, stock_quantity) values (?, ?, ?, ?)', [response.newName,response.newCat,response.newPrice,response.newStock], function(err) {
             if(err) throw err;
-            console.log(chalk.green.bold("\nProduct has been updated.\n"));
+            console.log(chalk.green.bold("\nAdded to Inventory:"));
+            console.log("Name: " + response.newName);
+            console.log("Category: " + response.newCat);
+            console.log("Price: $" + response.newPrice);
+            console.log("Inventory: " + response.newStock);
             manager();
         }); // closing connection.query for updating stock
     });

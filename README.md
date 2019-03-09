@@ -3,10 +3,9 @@
 
 ## Project Overview
 
-BOOTCAMPAZON was created as a homework assignment for the UNC Chapel Hill Full Stack Web Development Bootcamp, Nov. 2018 Cohort. BOOTCAMPAZON is ran from terminal.
+BOOTCAMPAZON is a simple "storefront" ran from the command line. There is a "Customer" and "Manager" portal that can be used to buy products and update inventory.
 
-// TODO: update this:
-You can watch a video of BOOTCAMPAZON in action here: [Link] (https://drive.google.com/file/d/19hlAufCrm2TLe1ddyGa2lF0z4f29coMP/view?usp=sharing)
+BOOTCAMPAZON was created as a homework assignment for the UNC Chapel Hill Full Stack Web Development Bootcamp, Nov. 2018 Cohort. BOOTCAMPAZON is ran from terminal via Node.js.
 
 
 ## Technologies / Proficiencies
@@ -25,72 +24,88 @@ Node packages incorporated into this assignment:
 * [Chalk] (https://www.npmjs.com/package/chalk)
 
 
-## Features
+## Customer Features
 
-BOOTCAMPAZON is a simple pseudo-ecommerce storefront ran from the command line. There is a "Customer" and "Manager" portal.
+Running bootCampazon.js provides the following customer interactions:
 
-// TODO: STOPPED HERE.
-### concert-this
+### Inventory Display
 
-The concert-this function of LIRI Bot will take the input of a band name, and query the band name against the Bands In Town API. If the band will be performing in the near future, information for those events will be printed to the screen. 
+After running the script, the inventory of the current store is displayed:
 
-Input format:
-`node liri concert-this <band name>`
+![Image of BOOTCAMPAZON](https://raw.githubusercontent.com/tbrandonhowell/BOOTCAMPAZON/master/images/customer1.png)
 
-Example:
-`node liri concert-this queens of the stone age`
+### Making a Purchase
 
-![Image of concert-this](https://raw.githubusercontent.com/tbrandonhowell/liri-node-app/master/images/concert-this.png)
-      
+The customer is then presented with prompts asking which product they would like to purchase, and at what quantity:
 
-### spotify-this-song
+![Image of BOOTCAMPAZON](https://raw.githubusercontent.com/tbrandonhowell/BOOTCAMPAZON/master/images/customer1.png)
 
-The spotify-this-song function of LIRI Bot will take the input of a song name, and query the song name against the Spotify API. If there are matches for the song name, information about the first match in the API's returned JSON object will be printed to the screen.
+After this interaction, the customer is present with their total and an updated inventory count for the product they purchased:
 
-Input format:
-`node liri spotify-this-song <song name>`
+![Image of BOOTCAMPAZON](https://raw.githubusercontent.com/tbrandonhowell/BOOTCAMPAZON/master/images/customer1.png)
 
-Example:
-`node liri spotify-this-song paranoid android`
+Finally, the customer is asked if they would like to keep shopping. If they chose "Yes", the script re-starts be presenting the customer with the inventory list and questions about which product they would like to buy. If the customer chooses "No", then a "thank you" message is displayed:
 
-![Image of concert-this](https://raw.githubusercontent.com/tbrandonhowell/liri-node-app/master/images/spotify-this-song.png)
+![Image of BOOTCAMPAZON](https://raw.githubusercontent.com/tbrandonhowell/BOOTCAMPAZON/master/images/customer1.png)
 
 
-### movie-this
+## Customer Features
 
-The movie-this function of LIRI Bot will take the input of a movie name, and query the movie name against the OMDB API. If there is a match for the movie name, information about that movie will be printed to the screen.
+Running bootCampazonMan.js provides the following manager interactions:
 
-Input format:
-`node liri movie-this <movie name>`
+### Main Menu
 
-Example:
-`node liri movie-this death to smoochy`
+After first running the script, the manager is presented with five options:
 
-![Image of concert-this](https://raw.githubusercontent.com/tbrandonhowell/liri-node-app/master/images/movie-this.png)
+![Image of BOOTCAMPAZON](https://raw.githubusercontent.com/tbrandonhowell/BOOTCAMPAZON/master/images/manager1.png)
+
+After completing the steps for any given option, the manager is then presented with this same prompt.
+
+### View Products for Sale
+
+This option will print a table of the available products to terminal:
+
+![Image of BOOTCAMPAZON](https://raw.githubusercontent.com/tbrandonhowell/BOOTCAMPAZON/master/images/manager2.png)
+
+### View Low Inventory
+
+This option will print a table of any product that has less than five items in stock:
+
+![Image of BOOTCAMPAZON](https://raw.githubusercontent.com/tbrandonhowell/BOOTCAMPAZON/master/images/manager3.png)
+
+### Add to Inventory
+
+When selected, this option will also print a table of the available products:
+
+![Image of BOOTCAMPAZON](https://raw.githubusercontent.com/tbrandonhowell/BOOTCAMPAZON/master/images/manager4.png)
+
+Then the manager is asked for the item to add to inventory, and the quantity:
+
+![Image of BOOTCAMPAZON](https://raw.githubusercontent.com/tbrandonhowell/BOOTCAMPAZON/master/images/manager5.png)
+
+Once the item has been updated, as simple confirmation message is shown before re-loading the main menu:
+
+![Image of BOOTCAMPAZON](https://raw.githubusercontent.com/tbrandonhowell/BOOTCAMPAZON/master/images/manager6.png)
+
+### Add New Product
+
+This option prompts the manager to input the name, category, price, and starting inventory for the new product:
+
+![Image of BOOTCAMPAZON](https://raw.githubusercontent.com/tbrandonhowell/BOOTCAMPAZON/master/images/manager7.png)
+
+After successfully adding the item to inventory, the following is displayed to the manager:
+
+![Image of BOOTCAMPAZON](https://raw.githubusercontent.com/tbrandonhowell/BOOTCAMPAZON/master/images/manager8.png)
+
+### Exit Application
+
+Selecting this option will end the script and exit to terminal.
 
 
-### do-what-it-says
+## BOOTCAMPAZON Setup
 
-The do-what-it-says function is an additional way to trigger the movie-this, spotify-this-song, or concert-this function based on the contents of random.txt. Within random.txt, you can include a single function type and a search string in the following format:
+BOOTCAMPAZON requires node.js in order to run. Package.json is included for ease of installation for NPM packages. 
 
-`spotify-this-song,"stairway to heaven"`
-
-To trigger this function, type the following in console:
-
-`node liri do-what-it-says`
-
-![Image of concert-this](https://raw.githubusercontent.com/tbrandonhowell/liri-node-app/master/images/do-what-it-says.png)
-
-
-## LIRI Bot Setup
-
-LIRI Bot requires node.js in order to run. Package.json is included for ease of installation for NPM packages. 
-
-LIRI Bot uses the file `.env` that is not included in this repository, and should be placed in the same folder with liri.js. This file should contain your Spotify Client ID and Client Secret. 
-
-.env should be formatted as such:
-
-    SPOTIFY_ID=123456789123456789123456789
-    SPOTIFY_SECRET=123456789123456789123456789
+The SQL files schema.sql and seeds.sql can be utilized to create the proper database structure.
 
 
