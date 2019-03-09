@@ -1,12 +1,8 @@
-// TIME SPENT:
-// 3/1 2:15
-// 3/2 2:50
 
 // =============================================
 // NPM PACKAGES
 const mysql = require("mysql");
 const inquirer = require("inquirer");
-// const table = require("table");
 const {table} = require('table');
 // ^^ not sure why this works but the normal require doesn't
 const chalk = require('chalk');
@@ -99,7 +95,6 @@ var customer = function() {
                         return "Please enter a valid Item ID."
                     }
                 }
-                // ^^ validation starting point courtesy of https://github.com/sameeri/Code-Inquirer/wiki/Asking-questions-away-with-Inquirer!
             },
             {
                 type: "input",
@@ -117,6 +112,22 @@ var customer = function() {
                 // ^^ if you do a === match, you need to convert the user input into a number
                     if (data[q].stock_quantity < response.buyQuantity) { // if stock is too low, display this message:
                         console.log("\nSorry, we do not have that many in stock.\n");
+                        inquirer.prompt (
+                            {
+                                type: "list",
+                                message: "Would you like to keep shopping?",
+                                choices: ['Yes','No'],
+                                name: "keepShopping"
+                            }
+                        ).then(function(response){
+                            if(response.keepShopping === 'Yes') {
+                                // relaunch customer()
+                                customer();
+                            } else {
+                                connection.end();
+                                console.log("\nWe're all done then! Thank you and come again!\n");
+                            }
+                        });
                     } else { // otherwise, we assume we have enough stock and proceed.
                         updateQuantity = data[q].stock_quantity - response.buyQuantity; // what the new quantity should be for this item after the purchase
                         // confirm to the user:

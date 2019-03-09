@@ -66,14 +66,12 @@ var manager = function() {
                 console.log('\nGoodbye.\n');
                 connection.end();
                 break;
-                // TODO: why is this not exiting in to terminal
             default:
                 console.log("Sorry, that is not an option.");
                 connection.end();
                 break;
             }
         }) // close inquirer.then()
-    
 }; // close manager()
 // =============================================
 
@@ -141,7 +139,6 @@ var viewLowInv = function() {
         console.log(chalk.red.bold('\n\n###  BOOTCAMPAZON'));
         console.log(chalk.red.bold('###  MANAGER MODE: VIEW LOW INVENTORY\n'));
         // display the data w/ table package
-        let output;
         let tableData = [];
         config = {
             columns: {
@@ -172,6 +169,7 @@ var viewLowInv = function() {
         if (data.length < 1) {
             console.log(chalk.green.bold("Currently there are at least five of each item in stock.\n\n"))
         } else {
+            let output;
             for (i=0;i<data.length;i++) {
                 var newArray = [
                     data[i].item_id,
@@ -181,10 +179,10 @@ var viewLowInv = function() {
                     "$"+data[i].price.toFixed(2)
                 ];
                 tableData.push(newArray);
-                output = table(tableData,config);
-                console.log(output);
-                console.log('\n');
             }
+            output = table(tableData,config);
+            console.log(output);
+            console.log('\n');
         }
         manager();
     });
@@ -282,7 +280,6 @@ var addInv = function() {
 
 // =============================================
 // CREATE addNewProd() FUNCTION
-// TODO: 
 var addNewProd = function() {
     console.log("addNewProd() triggered");
     // need to get all the product info from the user
@@ -315,14 +312,10 @@ var addNewProd = function() {
             type: "input",
             message: chalk.green('What is the price for this item? (Input as "XXXX.XX"; do not include the dollar sign.'),
             name: "newPrice",
-            // TODO: need proper validation here.
-            // validate: function (newPrice) {
-            //     if (newName.length < 51) { // make sure the itemID they input actually exists in the list of items
-            //         return true;
-            //     } else {
-            //         return "Your category name is too long. Please limit the name to 50 characters or less."
-            //     }
-            // }
+            validate: function (newStock) { // make sure the quantity entered is actually a number
+                var isValid = !isNaN(parseFloat(newStock));
+                return isValid || "Price should be in XXXX.XX format!";
+            }
         },
         {
             type: "input",
@@ -341,15 +334,11 @@ var addNewProd = function() {
         console.log(response.newStock);
         // update the DB to create the item
         connection.query('insert into products (product_name, department_name, price, stock_quantity) values (?, ?, ?, ?)', [response.newName,response.newCat,response.newPrice,response.newStock], function(err) {
-        // connection.query('insert into products (product_name, department_name, price, stock_quantity) values ('+response.newName+','+response.newCat+','+response.newPrice+','+response.newStock+')', function(err) {
-        // connection.query('select * from products', function(err, data) {
             if(err) throw err;
             console.log(chalk.green.bold("\nProduct has been updated.\n"));
             manager();
         }); // closing connection.query for updating stock
-        // console.log(query.sql);
     });
-    // then shove it all into a sql add
 };
 // =============================================
 
