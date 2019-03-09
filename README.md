@@ -40,13 +40,15 @@ The customer is then presented with prompts asking which product they would like
 
 ![Image of BOOTCAMPAZON](https://raw.githubusercontent.com/tbrandonhowell/BOOTCAMPAZON/master/example_images/customer2.png)
 
-After this interaction, the customer is present with their total and an updated inventory count for the product they purchased:
+After this interaction, the customer is presented with their total and an updated inventory count for the product they purchased:
 
 ![Image of BOOTCAMPAZON](https://raw.githubusercontent.com/tbrandonhowell/BOOTCAMPAZON/master/example_images/customer3.png)
 
-Finally, the customer is asked if they would like to keep shopping. If they chose "Yes", the script re-starts be presenting the customer with the inventory list and questions about which product they would like to buy. If the customer chooses "No", then a "thank you" message is displayed:
+Finally, the customer is asked if they would like to keep shopping: 
 
 ![Image of BOOTCAMPAZON](https://raw.githubusercontent.com/tbrandonhowell/BOOTCAMPAZON/master/example_images/customer4.png)
+
+If they chose "Yes", the script re-starts by presenting the customer with the inventory list and questions about which product they would like to buy. If the customer chooses "No", then a "thank you" message is displayed.
 
 
 ## Manager Features
@@ -59,11 +61,11 @@ After first running the script, the manager is presented with five options:
 
 ![Image of BOOTCAMPAZON](https://raw.githubusercontent.com/tbrandonhowell/BOOTCAMPAZON/master/example_images/manager1.png)
 
-After completing the steps for any given option, the manager is then presented with this same prompt.
+Note: After completing the steps for any given option, the manager is then presented with this same prompt.
 
 ### View Products for Sale
 
-This option will print a table of the available products to terminal:
+This option will print to terminal a table of the available products:
 
 ![Image of BOOTCAMPAZON](https://raw.githubusercontent.com/tbrandonhowell/BOOTCAMPAZON/master/example_images/manager2.png)
 
