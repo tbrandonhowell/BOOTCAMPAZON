@@ -38,18 +38,18 @@ After running the script, the inventory of the current store is displayed:
 
 The customer is then presented with prompts asking which product they would like to purchase, and at what quantity:
 
-![Image of BOOTCAMPAZON](https://raw.githubusercontent.com/tbrandonhowell/BOOTCAMPAZON/master/example_images/customer1.png)
+![Image of BOOTCAMPAZON](https://raw.githubusercontent.com/tbrandonhowell/BOOTCAMPAZON/master/example_images/customer2.png)
 
 After this interaction, the customer is present with their total and an updated inventory count for the product they purchased:
 
-![Image of BOOTCAMPAZON](https://raw.githubusercontent.com/tbrandonhowell/BOOTCAMPAZON/master/example_images/customer1.png)
+![Image of BOOTCAMPAZON](https://raw.githubusercontent.com/tbrandonhowell/BOOTCAMPAZON/master/example_images/customer3.png)
 
 Finally, the customer is asked if they would like to keep shopping. If they chose "Yes", the script re-starts be presenting the customer with the inventory list and questions about which product they would like to buy. If the customer chooses "No", then a "thank you" message is displayed:
 
-![Image of BOOTCAMPAZON](https://raw.githubusercontent.com/tbrandonhowell/BOOTCAMPAZON/master/example_images/customer1.png)
+![Image of BOOTCAMPAZON](https://raw.githubusercontent.com/tbrandonhowell/BOOTCAMPAZON/master/example_images/customer4.png)
 
 
-## Customer Features
+## Manager Features
 
 Running bootCampazonMan.js provides the following manager interactions:
 
