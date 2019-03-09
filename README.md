@@ -32,21 +32,21 @@ Running bootCampazon.js provides the following customer interactions:
 
 After running the script, the inventory of the current store is displayed:
 
-![Image of BOOTCAMPAZON](https://raw.githubusercontent.com/tbrandonhowell/BOOTCAMPAZON/master/images/customer1.png)
+![Image of BOOTCAMPAZON](https://raw.githubusercontent.com/tbrandonhowell/BOOTCAMPAZON/master/example_images/customer1.png)
 
 ### Making a Purchase
 
 The customer is then presented with prompts asking which product they would like to purchase, and at what quantity:
 
-![Image of BOOTCAMPAZON](https://raw.githubusercontent.com/tbrandonhowell/BOOTCAMPAZON/master/images/customer1.png)
+![Image of BOOTCAMPAZON](https://raw.githubusercontent.com/tbrandonhowell/BOOTCAMPAZON/master/example_images/customer1.png)
 
 After this interaction, the customer is present with their total and an updated inventory count for the product they purchased:
 
-![Image of BOOTCAMPAZON](https://raw.githubusercontent.com/tbrandonhowell/BOOTCAMPAZON/master/images/customer1.png)
+![Image of BOOTCAMPAZON](https://raw.githubusercontent.com/tbrandonhowell/BOOTCAMPAZON/master/example_images/customer1.png)
 
 Finally, the customer is asked if they would like to keep shopping. If they chose "Yes", the script re-starts be presenting the customer with the inventory list and questions about which product they would like to buy. If the customer chooses "No", then a "thank you" message is displayed:
 
-![Image of BOOTCAMPAZON](https://raw.githubusercontent.com/tbrandonhowell/BOOTCAMPAZON/master/images/customer1.png)
+![Image of BOOTCAMPAZON](https://raw.githubusercontent.com/tbrandonhowell/BOOTCAMPAZON/master/example_images/customer1.png)
 
 
 ## Customer Features
@@ -57,7 +57,7 @@ Running bootCampazonMan.js provides the following manager interactions:
 
 After first running the script, the manager is presented with five options:
 
-![Image of BOOTCAMPAZON](https://raw.githubusercontent.com/tbrandonhowell/BOOTCAMPAZON/master/images/manager1.png)
+![Image of BOOTCAMPAZON](https://raw.githubusercontent.com/tbrandonhowell/BOOTCAMPAZON/master/example_images/manager1.png)
 
 After completing the steps for any given option, the manager is then presented with this same prompt.
 
@@ -65,37 +65,37 @@ After completing the steps for any given option, the manager is then presented w
 
 This option will print a table of the available products to terminal:
 
-![Image of BOOTCAMPAZON](https://raw.githubusercontent.com/tbrandonhowell/BOOTCAMPAZON/master/images/manager2.png)
+![Image of BOOTCAMPAZON](https://raw.githubusercontent.com/tbrandonhowell/BOOTCAMPAZON/master/example_images/manager2.png)
 
 ### View Low Inventory
 
 This option will print a table of any product that has less than five items in stock:
 
-![Image of BOOTCAMPAZON](https://raw.githubusercontent.com/tbrandonhowell/BOOTCAMPAZON/master/images/manager3.png)
+![Image of BOOTCAMPAZON](https://raw.githubusercontent.com/tbrandonhowell/BOOTCAMPAZON/master/example_images/manager3.png)
 
 ### Add to Inventory
 
 When selected, this option will also print a table of the available products:
 
-![Image of BOOTCAMPAZON](https://raw.githubusercontent.com/tbrandonhowell/BOOTCAMPAZON/master/images/manager4.png)
+![Image of BOOTCAMPAZON](https://raw.githubusercontent.com/tbrandonhowell/BOOTCAMPAZON/master/example_images/manager4.png)
 
 Then the manager is asked for the item to add to inventory, and the quantity:
 
-![Image of BOOTCAMPAZON](https://raw.githubusercontent.com/tbrandonhowell/BOOTCAMPAZON/master/images/manager5.png)
+![Image of BOOTCAMPAZON](https://raw.githubusercontent.com/tbrandonhowell/BOOTCAMPAZON/master/example_images/manager5.png)
 
 Once the item has been updated, as simple confirmation message is shown before re-loading the main menu:
 
-![Image of BOOTCAMPAZON](https://raw.githubusercontent.com/tbrandonhowell/BOOTCAMPAZON/master/images/manager6.png)
+![Image of BOOTCAMPAZON](https://raw.githubusercontent.com/tbrandonhowell/BOOTCAMPAZON/master/example_images/manager6.png)
 
 ### Add New Product
 
 This option prompts the manager to input the name, category, price, and starting inventory for the new product:
 
-![Image of BOOTCAMPAZON](https://raw.githubusercontent.com/tbrandonhowell/BOOTCAMPAZON/master/images/manager7.png)
+![Image of BOOTCAMPAZON](https://raw.githubusercontent.com/tbrandonhowell/BOOTCAMPAZON/master/example_images/manager7.png)
 
 After successfully adding the item to inventory, the following is displayed to the manager:
 
-![Image of BOOTCAMPAZON](https://raw.githubusercontent.com/tbrandonhowell/BOOTCAMPAZON/master/images/manager8.png)
+![Image of BOOTCAMPAZON](https://raw.githubusercontent.com/tbrandonhowell/BOOTCAMPAZON/master/example_images/manager8.png)
 
 ### Exit Application
 
